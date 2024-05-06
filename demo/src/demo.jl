@@ -17,13 +17,13 @@ X = SymTridiagonal(rand(n), rand(n-1))
 U0 = Matrix{ComplexF64}(I, n, n)
 
 # dense case
-# params = [Matrix(X)]
-# A0 = zeros(ComplexF64, n, n)
-# # @btime odetest($U0, $params, $A0);
-# @profilehtml odetest(U0, params, A0);
-
-# sparse case
-params = [sparse(X)]
-A0 = spzeros(ComplexF64, n, n)
+params = [Matrix(X)]
+A0 = zeros(ComplexF64, n, n)
 # @btime odetest($U0, $params, $A0);
 @profilehtml odetest(U0, params, A0);
+
+# sparse case
+# params = [sparse(X)]
+# A0 = spzeros(ComplexF64, n, n)
+# # @btime odetest($U0, $params, $A0);
+# @profilehtml odetest(U0, params, A0);
